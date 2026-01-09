@@ -1,32 +1,43 @@
-# A simple MERN stack application
+🔐 CI + Branch Protection Workflow
 
-**Note** - To run this project using `docker compose`, follow the below steps.
+This repository uses a Pull Request–based workflow to keep the main branch stable and protected.
 
-Switch to the `compose` branch to learn the
+✅ What is implemented
 
-1. Implementation of `Dockerfile` for `client` and `server`.
-2. Run the containers using `Docker Compose`.
+main branch is protected
 
-## Run it local without Docker
+Direct pushes to main are blocked
 
-### Prerequisite
+All changes must be done in a feature branch
 
-- Install `npm`
+Changes reach main only via Pull Requests
 
-#### Start Server:
+Every Pull Request must:
 
-```
-cd mern/server
-npm install
-npm start
-```
+Pass GitHub Actions CI (backend + frontend checks)
 
-#### Start Client
+Have at least one approval
 
-```
-cd mern/client
-npm install
-npm run dev
-```
+🔁 How to work on this repo
 
-<img width="1790" alt="Screenshot 2024-08-31 at 11 07 58 PM" src="https://github.com/user-attachments/assets/f414230b-8bd6-4393-b8de-6a10444a8dfd">
+Create a new branch from main
+
+Push code changes to the feature branch
+
+Open a Pull Request → main
+
+CI runs automatically
+
+After CI success and approval, merge is allowed
+
+🎯 Why this setup
+
+Prevents broken code from reaching main
+
+Enforces review and CI validation
+
+Matches real-world DevOps best practices
+
+🧠 One-Line Summary
+
+The main branch only accepts reviewed and CI-validated code through Pull Requests.
