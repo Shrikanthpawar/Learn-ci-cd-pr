@@ -25,3 +25,24 @@ This repository uses a Pull Request–based workflow to keep the main branch sta
 
 # One-Line Summary
 The main branch only accepts reviewed and CI-validated code through Pull Requests.
+
+
+
+# PR + CI + Branch Protection
+
+This is the real, enterprise-grade “hook” behavior.
+
+How it works (correct flow):
+Developer pushes → feature branch
+↓
+Pull Request created
+↓
+CI automatically runs (build/test)
+↓
+GitHub BLOCKS merge
+↓
+Waits for:
+  - CI success
+  - Required reviews (Dev / Lead / DevOps)
+↓
+Merge allowed
