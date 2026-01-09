@@ -1,32 +1,48 @@
-# A simple MERN stack application
+# CI + Branch Protection Workflow
 
-**Note** - To run this project using `docker compose`, follow the below steps.
+# Overview
+This repository uses a Pull Request–based workflow to keep the main branch stable and protected.
 
-Switch to the `compose` branch to learn the
+# What Is Implemented
+- The main branch is protected
+- Direct pushes to main are blocked
+- All changes must be done in a feature branch
+- Changes reach main only via Pull Requests
+- Every Pull Request must pass GitHub Actions CI (backend + frontend checks)
+- At least one approval is required before merging
 
-1. Implementation of `Dockerfile` for `client` and `server`.
-2. Run the containers using `Docker Compose`.
+# How to Work on This Repository
+1. Create a new branch from main
+2. Push code changes to the feature branch
+3. Open a Pull Request targeting main
+4. CI runs automatically
+5. After CI success and approval, the Pull Request can be merged
 
-## Run it local without Docker
+# Why This Setup Exists
+- Prevents broken code from reaching main
+- Enforces code review and CI validation
+- Matches real-world DevOps best practices
 
-### Prerequisite
+# One-Line Summary
+The main branch only accepts reviewed and CI-validated code through Pull Requests.
 
-- Install `npm`
 
-#### Start Server:
 
-```
-cd mern/server
-npm install
-npm start
-```
+# PR + CI + Branch Protection
 
-#### Start Client
+This is the real, enterprise-grade “hook” behavior.
 
-```
-cd mern/client
-npm install
-npm run dev
-```
-
-<img width="1790" alt="Screenshot 2024-08-31 at 11 07 58 PM" src="https://github.com/user-attachments/assets/f414230b-8bd6-4393-b8de-6a10444a8dfd">
+How it works (correct flow):
+Developer pushes → feature branch
+↓
+Pull Request created
+↓
+CI automatically runs (build/test)
+↓
+GitHub BLOCKS merge
+↓
+Waits for:
+  - CI success
+  - Required reviews (Dev / Lead / DevOps)
+↓
+Merge allowed
